@@ -1,0 +1,32 @@
+
+body {
+  	display: flex;
+  	min-height: 100vh;
+  	flex-direction: column;
+}
+
+main {
+  	flex: 1 0 auto;
+}
+
+.j-margin-20{
+  margin: 20px;
+}
+
+h1{
+  font-size: 40px;
+  margin: 10px;
+}
+
+.indie-flower{
+  font-family: 'Indie Flower', cursive;
+}
+
+.dosis{
+  font-family: 'Dosis', sans-serif;
+}
+
+ul.li.a{
+  font-family: 'Dosis', sans-serif;
+  font-size: 10px;
+}
