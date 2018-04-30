@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>página</title>
+
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link rel="stylesheet" href="/static/css/materialize.min.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Dosis:300|Indie+Flower" rel="stylesheet">
+        <link rel="stylesheet" href="/static/css/miestilos.css"/>
+    </head>
+    <body class="brown lighten-4">
+
+        <header class="navbar-fixed">
+            <nav class="nav-extended">
+                <div class="nav-wrapper orange lighten-2">
+                    <a href="/" class="brand-logo center"><h1 class="indie-flower">Veterinaria</h1></a>
+                    <a href="/" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/clientes">clientes</a></li>
+                        <li><a href="/mascotas">mascotas</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo" >
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/clientes">clientes</a></li>
+                        <li><a href="/mascotas">mascotas</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+
+        <section class="container">
+
+            <div id="registrar_cliente" class="col s12">
+                <section>
+                    <div class="row" style="margin-top:40px;">
+                        <div class="white col s12 z-depth-1" style="padding:30px;">
+                            <div class="row">
+                                <div class="col s10 offset-s1">
+                                    <center>
+                                        <img src="/static/img/logoo.png" width="200" alt="">
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="divider col s8 offset-s2" style="margin-top:10px; margin-bottom:15px;"></div>
+                            <div class="row">
+                                <form class="col s12" method="POST" action="/servicio/delete" >
+                                    <div class="row">
+                                        <!--<div class="input-field col s12">
+                                            <i class="material-icons prefix">account_circle</i>
+                                            <input id="idd" name="idd" type="text" class="validate">
+                                            <label for="idd">ID del servicio</label>
+                                        </div>-->
+                                        <div class="input-field col s12">
+                                          <i class="material-icons prefix">account_circle</i>
+                                          <select id="idd" name="idd">
+                                            <option value="" disabled selected>servicios</option>
+                                            {{range $key, $val := .s}}
+                                                <option value="{{$val.Model.ID}}">{{$val.Nombre_Servicio}}</option>
+                                            {{end}}
+                                          </select>
+                                          <label for="idd">Seleccione el servicio a aliminar</label>
+                                        </div>
+                                        <div class="vol s12">
+                                            <input type="submit" class="red lighten-2 btn-large waves-effect col s10 offset-s1" value="Eliminar Servicio" style="margin-top:20px;">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </section>
+
+
+        <footer class="page-footer grey darken-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Footer Content</h5>
+                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Contact us!</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#!">facebook</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright grey darken-4">
+                <div class="container">
+                    © 2018 Copyright - Todos los derechos reservados
+                </div>
+            </div>
+        </footer>
+
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="/static/jquery/jquery-2.2.4.min.js"></script>
+        <!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+        <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+        <script>
+          $(document).ready(function() {
+            $('select').material_select();
+          });
+        </script>
+    </body>
+</html>
