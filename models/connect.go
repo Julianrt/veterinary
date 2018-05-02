@@ -19,7 +19,7 @@ func InitializeDatabase() {
 }
 
 func createString()string{
-    return "root:coco@/veterinaria"
+    return "root:coco@/veterinaria?charset=utf8&parseTime=True&loc=Local"
 }
 
 func CloseConnection(){

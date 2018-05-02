@@ -3,6 +3,7 @@ package servicio
 import(
     "github.com/Julianrt/beego/veterinaria/models"
 	"github.com/astaxie/beego"
+	"strconv"
 )
 
 type SaveServicioController struct {
@@ -17,4 +18,17 @@ func (this *SaveServicioController) Get() {
 
 func (this *SaveServicioController) Post() {
 	
+	nombre := this.GetString("name")
+	costo,_ := strconv.Atoi(this.GetString("costo"))
+	descripcion := this.GetString("descripcion")
+	
+	servicio := models.Servicio{
+		Nombre_Servicio: nombre,
+		Costo: costo,
+		Descripcion: descripcion,
+	}
+	
+	models.AddServicio(servicio)
+	
+	this.Ctx.Redirect(302,"/")
 }

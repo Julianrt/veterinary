@@ -1,12 +1,5 @@
 package models
 
-import (
-    //"github.com/jinzhu/gorm"
-    //_"github.com/jinzhu/gorm/dialects/mysql"
-)
-
-//var db *gorm.DB
-
 func init(){
     InitializeDatabase()
 }
@@ -19,10 +12,13 @@ func GetServicio(aidi int) Servicio {
 }
 
 func GetAllServicios() []Servicio {
-    
     servicios := []Servicio{}
     db.Find(&servicios)
     return servicios
+}
+
+func AddServicio(s Servicio){
+	db.Create(&s)
 }
 
 func UpdateServicio(aidi, costo int, nombre, descripcion string) {
@@ -35,5 +31,5 @@ func UpdateServicio(aidi, costo int, nombre, descripcion string) {
 }
 
 func DeleteServicio(aidi int){
-    db.Where("id = ?",aidi).Delete(Servicio{})
+	db.Model(Servicio{}).Unscoped().Where("id = ?",aidi).Delete(Servicio{})
 }
