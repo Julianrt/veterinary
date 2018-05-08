@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>página</title>
+
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link rel="stylesheet" href="/static/css/materialize.min.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Dosis:300|Indie+Flower" rel="stylesheet">
+        <link rel="stylesheet" href="/static/css/miestilos.css"/>
+    </head>
+    <body class="brown lighten-4">
+
+        <header class="navbar-fixed">
+            <nav class="nav-extended">
+                <div class="nav-wrapper orange lighten-2">
+                    <a href="/" class="brand-logo center"><h1 class="indie-flower">Veterinaria</h1></a>
+                    <a href="/" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+                        <li><a href="/">Home</a></li>
+                        <li class="active"><a href="/clientes">clientes</a></li>
+                        <li><a href="/mascotas">mascotas</a></li>
+                    </ul>
+                    <ul id="mobile-demo" class="side-nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/clientes">clientes</a></li>
+                        <li><a href="/mascotas">mascotas</a></li>
+                    </ul>
+                </div>
+                <div class="nav-content orange lighten-2">
+                    <ul class="tabs tabs-transparent">
+                        <li class="tab"><a href="#consulta_cliente" class="active">Clientes</a></li>
+                        <li class="tab"><a href="#registrar_cliente">Registrar cliente</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+
+        <section class="container">
+            <div id="consulta_cliente" class="col s12">
+                <section>
+                    <div class="row" style="margin-top:70px;">
+                        <div class="white col s12 z-depth-1" style="padding:30px;">
+                            <div class="row">
+                                <div class="col s10 offset-s1">
+                                    <center>
+                                        <img src="/static/img/logoo.png" width="200" alt="">
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <table class="striped borderless responsive">
+                                    <thead>
+                                        <tr>
+                                            <th>nombre</th>
+                                            <th>direccion</th>
+                                            <th>telefono</th>
+                                            <th>Editar</th>
+                                            <th>Eliminar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{range $key, $val := .c}}
+                                        <tr>
+                                            <td>{{$val.Nombre}}</td>
+                                            <td>{{$val.Direccion}}</td>
+                                            <td>{{$val.Telefono}}</td>
+                                            <td><a href="/cliente/edit"><button class="btn" value=""></button></a></td>
+                                            <td><a href="/cliente/delete"><button class="btn red" value=""></button></a></td>
+                                        </tr>
+                                        {{end}}
+                                        <!--Logica para iterar todos los elementos-->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="registrar_cliente" class="col s12">
+                <section>
+                    <div class="row" style="margin-top:70px;">
+                        <div class="white col s12 z-depth-1" style="padding:30px;">
+                            <div class="row">
+                                <div class="col s10 offset-s1">
+                                    <center>
+                                        <img src="/public/images/logo.png" width="100" alt="">
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="divider col s8 offset-s2" style="margin-top:10px; margin-bottom:15px;"></div>
+                            <div class="row">
+                                <form class="col s12" method="POST" action="/cliente" >
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">account_circle</i>
+                                            <input id="name" name="name" type="text" class="validate">
+                                            <label for="name">Nombre</label>
+                                        </div>
+                                        <!--<div class="input-field col s12">
+                                            <i class="material-icons prefix">email</i>
+                                            <input id="last_name" name="last_name" type="email" class="validate">
+                                            <label for="last_name">Correo</label>
+                                        </div>-->
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">add_location</i>
+                                            <input id="address" name="address" type="text" class="validate">
+                                            <label for="address">Direccion</label>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">phone</i>
+                                            <input id="phone" name="phone" type="text" class="validate">
+                                            <label for="phone">Telefono</label>
+                                        </div>
+                                        <div class="vol s12">
+                                            <input type="submit" class="orange lighten-2 btn-large waves-effect col s10 offset-s1" value="registrar" style="margin-top:20px;">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+
+        <footer class="page-footer grey darken-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Footer Content</h5>
+                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Contact us!</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#!">facebook</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright grey darken-4">
+                <div class="container">
+                    © 2018 Copyright - Todos los derechos reservados
+                </div>
+            </div>
+        </footer>
+
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="/static/jquery/jquery-2.2.4.min.js"></script>
+        <!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+        <script type="text/javascript" src="/static/js/materialize.min.js"></script>
+    </body>
+</html>
