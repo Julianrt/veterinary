@@ -25,5 +25,4 @@ func (this *EditClienteController) Post() {
 	models.UpdateCliente(id, nombre, direccion, telefono)
 	
 	this.Ctx.Redirect(302,"/cliente")
-	
 }
