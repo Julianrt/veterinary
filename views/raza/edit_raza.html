@@ -49,26 +49,26 @@
                             </div>
                             <div class="divider col s8 offset-s2" style="margin-top:10px; margin-bottom:15px;"></div>
                             <div class="row">
-                                <form class="col s12" method="POST" action="/raza/edit" >
+                                <form class="col s12" method="POST" action="/raza/edit/{{.r.Model.ID}}" >
                                     <div class="row">
                                         <!--<div class="input-field col s12">
                                             <i class="material-icons prefix">account_circle</i>
                                             <input id="idd" name="idd" type="text" class="validate disabled" value="">
                                             <label for="idd">id de la raza</label>
                                         </div>-->
-                                        <div class="input-field col s12">
+                                        <!--<div class="input-field col s12">
                                           <i class="material-icons prefix">account_circle</i>
                                           <select id="idd" name="idd">
                                             <option value="" disabled selected>razas</option>
-                                            {{range $key, $val := .r}}
-                                                <option value="{{$val.Model.ID}}">{{$val.Nombre_Raza}}</option>
-                                            {{end}}
+                                            {{/**range $key, $val := .r*/}}
+                                                <option value="{{/*$val.Model.ID*/}}">{{/*$val.Nombre_Raza*/}}</option>
+                                            {{/*end*/}}
                                           </select>
                                           <label for="idd">Seleccione la raza a eliminar</label>
-                                        </div>
+                                        </div>-->
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">account_circle</i>
-                                            <input id="name" name="name" type="text" class="validate">
+                                            <input id="name" name="name" type="text" class="validate" value="{{.r.Nombre_Raza}}">
                                             <label for="name">Nombre</label>
                                         </div>
                                         <div class="vol s12">

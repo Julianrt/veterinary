@@ -21,12 +21,12 @@
                     <ul id="nav-mobile" class="left hide-on-med-and-down">
                         <li><a href="/">Home</a></li>
                         <li class="active"><a href="/cliente">clientes</a></li>
-                        <li><a href="#">mascotas</a></li>
+                        <li><a href="/mascota">mascotas</a></li>
                     </ul>
                     <ul id="mobile-demo" class="side-nav">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/clientes">clientes</a></li>
-                        <li><a href="/mascotas">mascotas</a></li>
+                        <li><a href="/cliente">clientes</a></li>
+                        <li><a href="/mascota">mascotas</a></li>
                     </ul>
                 </div>
                 <div class="nav-content orange lighten-2">
@@ -68,7 +68,7 @@
                                             <td>{{$val.Nombre}}</td>
                                             <td>{{$val.Direccion}}</td>
                                             <td>{{$val.Telefono}}</td>
-                                            <td><a href="/cliente/edit"><button class="btn" value=""></button></a></td>
+                                            <td><a href="/cliente/edit/{{$val.Model.ID}}"><button class="btn" value=""></button></a></td>
                                             <td><a href="/cliente/delete"><button class="btn red" value=""></button></a></td>
                                         </tr>
                                         {{end}}

@@ -70,6 +70,7 @@ func EditMascota(aidi, raza, edad, cliente int, nombre string) {
 		ClienteID:		cliente,
 	}
 	db.Model(&m).Where("id = ?",aidi).Updates(m)
+	log.Println(m)
 }
 
 func DeleteMascota(aidi int) {

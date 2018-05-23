@@ -8,6 +8,7 @@ import(
 type Raza struct{
   gorm.Model
   Nombre_Raza string
+  Selected bool
 }
 
 type Mascota struct{
@@ -23,6 +24,7 @@ type MascotaShow struct{
   Raza string
   Edad int
   Cliente string
+  Selected bool
 }
 
 type Cliente struct{
@@ -30,6 +32,7 @@ type Cliente struct{
   Nombre string
   Direccion string
   Telefono string
+  Selected bool
 }
 
 type Servicio struct{

@@ -22,13 +22,13 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="/cliente">clientes</a></li>
                         <li><a href="/mascota">mascotas</a></li>
-                        <li class="active"><a href="/razas">Razas</a></li>
+                        <li class="active"><a href="/raza">Razas</a></li>
                     </ul>
                     <ul id="mobile-demo" class="side-nav">
                         <li><a href="/">Home</a></li>
                         <li><a href="/cliente">clientes</a></li>
                         <li><a href="/mascota">mascotas</a></li>
-                        <li class="active"><a href="/razas">Razas</a></li>
+                        <li class="active"><a href="/raza">Razas</a></li>
                     </ul>
                 </div>
                 <div class="nav-content orange lighten-2">
@@ -67,7 +67,7 @@
                                         {{range $key, $val := .r}}
                                         <tr>
                                             <td>{{$val.Nombre_Raza}}</td>
-                                            <td><a href="/raza/edit"><button class="btn"></button></a></td>
+                                            <td><a href="/raza/edit/{{$val.Model.ID}}"><button class="btn"></button></a></td>
                                             <td><a href="/raza/delete"><button class="btn red"></button></a></td>
                                         </tr>
                                         {{end}}

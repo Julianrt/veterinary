@@ -20,13 +20,13 @@
                     <a href="/" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="left hide-on-med-and-down">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/clientes">clientes</a></li>
-                        <li><a href="/mascotas">mascotas</a></li>
+                        <li><a href="/cliente">clientes</a></li>
+                        <li><a href="/mascota">mascotas</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo" >
                         <li><a href="/">Home</a></li>
-                        <li><a href="/clientes">clientes</a></li>
-                        <li><a href="/mascotas">mascotas</a></li>
+                        <li><a href="/cliente">clientes</a></li>
+                        <li><a href="/mascota">mascotas</a></li>
                     </ul>
                 </div>
             </nav>
@@ -48,36 +48,36 @@
                             </div>
                             <div class="divider col s8 offset-s2" style="margin-top:10px; margin-bottom:15px;"></div>
                             <div class="row">
-                                <form class="col s12" method="POST" action="/cliente/edit" >
+                                <form class="col s12" method="POST" action="/cliente/edit/{{.cc.Model.ID}}" >
                                     <div class="row">
                                         <!--<div class="input-field col s12">
                                             <i class="material-icons prefix">account_circle</i>
                                             <input id="idd" name="idd" type="text" class="validate disabled">
                                             <label for="idd">id del cliente</label>
-                                        </div>-->
+                                        </div>
                                         <div class="input-field col s12">
                                           <i class="material-icons prefix">account_circle</i>
                                           <select id="idd" name="idd">
                                             <option value="" disabled selected>Usuarios</option>
-                                            {{range $key, $val := .c}}
-                                                <option value="{{$val.Model.ID}}">{{$val.Nombre}}</option>
-                                            {{end}}
+                                            {{/*range $key, $val := .c*/}}
+                                                <option value="{{/*$val.Model.ID*/}}">{{/*$val.Nombre*/}}</option>
+                                            {{/*end*/}}
                                           </select>
                                           <label for="idd">Seleccione el usuario a editar</label>
-                                        </div>
+                                        </div>-->
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">account_circle</i>
-                                            <input id="name" name="name" type="text" class="validate">
+                                            <input id="name" name="name" type="text" class="validate" value="{{.cc.Nombre}}">
                                             <label for="name">Nombre</label>
                                         </div>
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">add_location</i>
-                                            <input id="address" name="address" type="text" class="validate">
+                                            <input id="address" name="address" type="text" class="validate" value="{{.cc.Direccion}}">
                                             <label for="address">Direccion</label>
                                         </div>
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">phone</i>
-                                            <input id="phone" name="phone" type="text" class="validate">
+                                            <input id="phone" name="phone" type="text" class="validate" value="{{.cc.Telefono}}">
                                             <label for="phone">Telefono</label>
                                         </div>
                                         <div class="vol s12">

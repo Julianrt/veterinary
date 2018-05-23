@@ -4,6 +4,7 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/Julianrt/beego/veterinaria/models"
 	"strconv"
+	"log"
 )
 
 type MascotaController struct {
@@ -38,14 +39,30 @@ type EditMascotaController struct {
 }
 
 func (this *EditMascotaController) Get() {
+	mascota_id,_ := strconv.Atoi(this.Ctx.Input.Param(":id"))
+	mascota := models.GetMascota(mascota_id)
 	datos := models.GetAllMascotasJoins()
+	for i,_ := range(datos.Razas) {
+		if datos.Razas[i].Model.ID == uint(mascota.RazaID) {
+			datos.Razas[i].Selected = true
+		}
+		log.Println(datos.Razas[i])
+	}
+	for i,_ := range(datos.Clientes) {
+		if datos.Clientes[i].Model.ID == uint(mascota.ClienteID) {
+			datos.Clientes[i].Selected = true
+		}
+		log.Println(datos.Razas[i])
+	}
 	this.Data["d"] = datos
+	this.Data["m"] = mascota
 	this.TplName = "mascota/mascota_edit.html"
 }
 
 func (this *EditMascotaController) Post() {
 	
-	id,_ := strconv.Atoi(this.GetString("idd"))
+	id,_ := strconv.Atoi(this.Ctx.Input.Param(":id"))
+	log.Println(id)
 	nombre := this.GetString("name")
 	raza,_ := strconv.Atoi(this.GetString("raza"))
 	edad,_ := strconv.Atoi(this.GetString("edad"))

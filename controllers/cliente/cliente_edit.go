@@ -11,13 +11,16 @@ type EditClienteController struct {
 }
 
 func (this *EditClienteController) Get() {
+	cliente_id,_ := strconv.Atoi(this.Ctx.Input.Param(":id"))
 	clientes := models.GetAllClientes()
+	cliente := models.GetCliente(cliente_id)
 	this.Data["c"] = clientes
+	this.Data["cc"] = cliente
 	this.TplName = "cliente/cliente_edit.html"
 }
 
 func (this *EditClienteController) Post() {
-	id,_ := strconv.Atoi(this.GetString("idd"))
+	id,_ := strconv.Atoi(this.Ctx.Input.Param(":id"))
 	nombre := this.GetString("name")
 	direccion := this.GetString("address")
 	telefono := this.GetString("phone")

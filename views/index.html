@@ -28,11 +28,11 @@
                         <li><a href="/cliente">clientes</a></li>
                         <li><a href="/mascota">mascotas</a></li>
                     </ul>
-                    <!--<ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="/service/save">agregar servicio</a></li>
-                        <li><a href="/service/edit">editar servicio</a></li>
-                        <li><a href="/service/delete">eliminar servicio</a></li>
-                    </ul>-->
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="/servicio/save">agregar servicio</a></li>
+                        <li><a href="/servicio/edit">editar servicio</a></li>
+                        <li><a href="/servicio/delete">eliminar servicio</a></li>
+                    </ul>
                 </div>
             </nav>
         </header>
@@ -46,7 +46,7 @@
                             <img class="activator" src="/static/img/logoo.png">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">{{$val.Nombre_Servicio}}<i class="material-icons right">more_vert</i></span>
+                            <span class="card-title activator grey-text text-darken-4">{{$val.Nombre_Servicio}} <img class="material-icons right" src="/static/icons/more_vert.png" width="25px" alt=""> <!--<i class="material-icons right" src="/static/icons/more_vert.png">more_vert</i>--></span>
                             <p><a href="/servicio/register">Solicitar el servicio</a></p>
                         </div>
                         <div class="card-reveal">

@@ -18,14 +18,14 @@ func init() {
 	beego.Router("/servicio/historial", &controllers.HistorialServicioController{})
 	
 	beego.Router("/cliente", &cliente.ClienteController{})
-	beego.Router("/cliente/edit", &cliente.EditClienteController{})
+	beego.Router("/cliente/edit/:id([0-9]+)", &cliente.EditClienteController{})
 	beego.Router("/cliente/delete", &cliente.DeleteClienteController{})
 	
 	beego.Router("/raza", &raza.RazaController{})
-	beego.Router("/raza/edit", &raza.EditRazaController{})
+	beego.Router("/raza/edit/:id([0-9]+)", &raza.EditRazaController{})
 	beego.Router("/raza/delete", &raza.DeleteRazaController{})
 	
 	beego.Router("/mascota", &mascota.MascotaController{})
-	beego.Router("/mascota/edit", &mascota.EditMascotaController{})
+	beego.Router("/mascota/edit/:id([0-9]+)", &mascota.EditMascotaController{})
 	beego.Router("/mascota/delete", &mascota.DeleteMascotaController{})
 }
