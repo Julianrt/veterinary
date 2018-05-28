@@ -8,15 +8,30 @@ func init() {
 	//InitializeDatabase()
 }
 
+type Convert struct{
+	Clientes []Cliente
+	Razas []Raza
+}
+
 func GetAllMascotasJoins() DataMascota {
+	
 	
 	data := DataMascota{}
 	razas := []Raza{}
 	mascotashow := []MascotaShow{}
 	clientes := []Cliente{}
+	//clientesB := []ClienteB{}
 	
 	db.Find(&razas)
 	db.Find(&clientes)
+	
+	//var i = Convert{Clientes:clientes}
+	
+	//for _, v := range []interface{}{i.Clientes} {
+	//	log.Println(v.Nombre)
+	//}
+	
+	//clientesB = ClienteB(clientes)
 	
 	rows,err := db.Table("mascota").Select("mascota.id, mascota.nombre_mascota, razas.nombre_raza, mascota.edad, clientes.nombre").Joins("inner join razas on razas.id = mascota.raza_id inner join clientes on clientes.id = mascota.cliente_id").Rows()
 	if err != nil {

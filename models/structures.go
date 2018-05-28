@@ -34,6 +34,13 @@ type Cliente struct{
   Telefono string
   Selected bool
 }
+type ClienteB struct{
+  gorm.Model
+  Nombre string
+  Direccion string
+  Telefono string
+  Selected bool
+}
 
 type Servicio struct{
   gorm.Model
