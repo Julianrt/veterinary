@@ -55,7 +55,7 @@
                                             <label for="idd">ID del servicio</label>
                                         </div>-->
                                         <div class="input-field col s12">
-                                          <i class="material-icons prefix">account_circle</i>
+                                          <!--<i class="material-icons prefix">account_circle</i>-->
                                           <select id="idd" name="idd">
                                             <option value="" disabled selected>servicios</option>
                                             {{range $key, $val := .s}}
@@ -65,17 +65,17 @@
                                           <label for="idd">Seleccione el servicio a editar</label>
                                         </div>
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">account_circle</i>
+                                            <!--<i class="material-icons prefix">account_circle</i>-->
                                             <input id="name" name="name" type="text" class="validate">
                                             <label for="name">Nombre del servicio</label>
                                         </div>
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">account_circle</i>
-                                            <input id="costo" name="costo" type="text" class="validate">
+                                            <!--<i class="material-icons prefix">account_circle</i>-->
+                                            <input id="costo" name="costo" type="text" class="validate" onKeypress="if(event.keyCode < 45 ||event.keyCode > 57)event.returnValue=false;" maxlength="5">
                                             <label for="costo">Costo del servicio</label>
                                         </div>
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">account_circle</i>
+                                            <!--<i class="material-icons prefix">account_circle</i>-->
                                             <textarea id="descripcion" name="descripcion" type="text" class="validate materialize-textarea"></textarea>
                                             <label for="descripcion">Descripcion</label>
                                         </div>

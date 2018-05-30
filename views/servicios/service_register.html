@@ -48,7 +48,7 @@
                             </div>
                             <div class="divider col s8 offset-s2" style="margin-top:10px; margin-bottom:15px;"></div>
                             <div class="row">
-                                <form class="col s12" method="POST" action="/servicio/register" >
+                                <form class="col s12" method="POST" action="/servicio/register/{{.id}}" >
                                     <div class="row">
                                         <!--<div class="input-field col s12">
                                             <i class="material-icons prefix">account_circle</i>
@@ -60,23 +60,23 @@
                                             <input id="id_servicio" name="id_servicio" type="text" class="validate" value="">
                                             <label for="id_servicio">id del servicio a realizar</label>
                                         </div>-->
-                                        <div class="input-field col s12">
+                                        <!--<div class="input-field col s12">
                                             <i class="material-icons prefix">account_circle</i>
                                             <select id="id_servicio" name="id_servicio">
                                                 <option value="" disabled selected>servicios</option>
-                                                {{range $key, $val := .s.Servicios}}
-                                                <option value="{{$val.Model.ID}}">{{$val.Nombre_Servicio}}</option>
-                                                {{end}}
+                                                {{/*range $key, $val := .s.Servicios*/}}
+                                                <option value="{{/*$val.Model.ID*/}}">{{/*$val.Nombre_Servicio*/}}</option>
+                                                {{/*end*/}}
                                             </select>
                                             <label for="id_servicio">Seleccione el servicio a solicitar</label>
-                                        </div>
+                                        </div>-->
                                         <!--<div class="input-field col s12">
                                             <i class="material-icons prefix">account_circle</i>
                                             <input id="id_cliente" name="id_cliente" type="text" class="validate" value="">
                                             <label for="id_cliente">id del cliente</label>
                                         </div>-->
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">account_circle</i>
+                                            <!--<i class="material-icons prefix">account_circle</i>-->
                                             <select id="id_cliente" name="id_cliente">
                                                 <option value="" disabled selected>clientes</option>
                                                 {{range $key, $val := .s.Clientes}}
@@ -91,7 +91,7 @@
                                             <label for="id_mascota">id de la mascota</label>
                                         </div>-->
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">account_circle</i>
+                                            <!--<i class="material-icons prefix">account_circle</i>-->
                                             <select id="id_mascota" name="id_mascota">
                                                 <option value="" disabled selected>mascotas</option>
                                                 {{range $key, $val := .s.Mascotas}}

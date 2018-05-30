@@ -102,7 +102,7 @@
                                 <form class="col s12" method="POST" action="/mascota" >
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">account_circle</i>
+                                            <!--<i class="material-icons prefix">account_circle</i>-->
                                             <input id="name" name="name" type="text" class="validate">
                                             <label for="name">Nombre</label>
                                         </div>
@@ -112,7 +112,7 @@
                                             <label for="raza">Raza de la mascota</label>
                                         </div>-->
                                         <div class="input-field col s12">
-                                          <i class="material-icons prefix">account_circle</i>
+                                          <!--<i class="material-icons prefix">account_circle</i>-->
                                           <select id="raza" name="raza">
                                             <option value="" disabled selected>razas</option>
                                             {{range $key, $val := .d.Razas}}
@@ -122,8 +122,8 @@
                                           <label for="raza">Seleccione la raza</label>
                                         </div>
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">account_circle</i>
-                                            <input id="edad" name="edad" type="text" class="validate">
+                                            <!--<i class="material-icons prefix">account_circle</i>-->
+                                            <input id="edad" name="edad" type="text" class="validate" onKeypress="if(event.keyCode < 45 ||event.keyCode > 57)event.returnValue=false;" maxlength="2">
                                             <label for="edad">Edad de la mascota</label>
                                         </div>
                                         <!--<div class="input-field col s12">
@@ -132,7 +132,7 @@
                                             <label for="cliente_dueno">Cliente dueño de la mascota</label>
                                         </div>-->
                                         <div class="input-field col s12">
-                                          <i class="material-icons prefix">account_circle</i>
+                                          <!--<i class="material-icons prefix">account_circle</i>-->
                                           <select id="cliente_dueno" name="cliente_dueno">
                                             <option value="" disabled selected>clientes</option>
                                             {{range $key, $val := .d.Clientes}}

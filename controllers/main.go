@@ -8,6 +8,10 @@ import (
 	"fmt"
 )
 
+
+/*
+*
+*/
 type MainController struct {
 	beego.Controller
 }
@@ -18,13 +22,19 @@ func (this *MainController) Get() {
 	this.TplName = "index.html"
 }
 
+//************************************************************************
+/*
+*
+*/
 type RegisterServicioController struct {
 	beego.Controller
 }
 
 func (this *RegisterServicioController) Get() {
+	servicio_id,_ := strconv.Atoi(this.Ctx.Input.Param(":id"))
     servicios := models.GetAllServicioJoin()
     this.Data["s"] = servicios
+	this.Data["id"] = servicio_id
 	this.TplName = "servicios/service_register.html"
 }
 
@@ -34,7 +44,8 @@ func (this *RegisterServicioController) Post() {
 	fecha := fmt.Sprintf("%d-%02d-%02d", t.Year(),t.Month(),t.Day())
 	hora := fmt.Sprintf("%02d:%02d:%02d", t.Hour(),t.Minute(),t.Second())
 	
-	servicio,_ := strconv.Atoi(this.GetString("id_servicio"))
+	servicio,_ := strconv.Atoi(this.Ctx.Input.Param(":id"))
+	//servicio,_ := strconv.Atoi(this.GetString("id_servicio"))
 	cliente,_ := strconv.Atoi(this.GetString("id_cliente"))
 	mascota,_ := strconv.Atoi(this.GetString("id_mascota"))
 	
@@ -49,6 +60,10 @@ func (this *RegisterServicioController) Post() {
 	this.Ctx.Redirect(302,"/")
 }
 
+//************************************************************************************
+/*
+*
+*/
 type HistorialServicioController struct {
 	beego.Controller
 }

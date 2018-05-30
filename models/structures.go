@@ -34,13 +34,13 @@ type Cliente struct{
   Telefono string
   Selected bool
 }
-type ClienteB struct{
+/*type ClienteB struct{
   gorm.Model
   Nombre string
   Direccion string
   Telefono string
   Selected bool
-}
+}*/
 
 type Servicio struct{
   gorm.Model
@@ -64,6 +64,23 @@ type Historial struct{
   Mascota string
   Fecha string
   Hora string
+}
+
+type Cita struct{
+	gorm.Model
+	Fecha string
+	Hora string
+	ClienteID int
+	MascotaID int
+	ServicioID int
+}
+type DataCita struct{
+	ID int
+	Fecha string
+	Hora string
+	Cliente string
+	Mascota string
+	Servicio string
 }
 
 type Puesto struct{

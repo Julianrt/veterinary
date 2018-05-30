@@ -14,7 +14,7 @@ func init() {
     beego.Router("/servicio/save", &servicio.SaveServicioController{})
 	beego.Router("/servicio/edit", &servicio.EditServicioController{})
 	beego.Router("/servicio/delete", &servicio.DeleteServicioController{})
-	beego.Router("/servicio/register", &controllers.RegisterServicioController{})
+	beego.Router("/servicio/register/:id([0-9]+)", &controllers.RegisterServicioController{})
 	beego.Router("/servicio/historial", &controllers.HistorialServicioController{})
 	
 	beego.Router("/cliente", &cliente.ClienteController{})
@@ -28,4 +28,7 @@ func init() {
 	beego.Router("/mascota", &mascota.MascotaController{})
 	beego.Router("/mascota/edit/:id([0-9]+)", &mascota.EditMascotaController{})
 	beego.Router("/mascota/delete", &mascota.DeleteMascotaController{})
+	
+	beego.Router("/cita",&controllers.CitaController{})
+	beego.Router("/cita/save/:id([0-9]+)", &controllers.AddCitaController{})
 }
