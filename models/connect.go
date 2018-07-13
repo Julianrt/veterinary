@@ -16,19 +16,19 @@ func InitializeDatabase() {
 	/*
 	*Conexion para MySQL
 	*/
-    //db, err = gorm.Open( "mysql", createString() )
+    db, err = gorm.Open( "mysql", createString() )
 	
 
 	/*
 	*Conexion para SQL Server
 	*/
-	var server = "192.168.0.7"
+	/*var server = "192.168.43.99"
 	var port = 1433
 	var user = "sa"
 	var password = "Carritos1#"
 	var database = "veterinary"
 	connectionString := fmt.Sprintf("server=%s;user id=%s;password=%s;port=%d;database=%s",server,user,password,port,database)
-	db, err = gorm.Open("mssql", connectionString)
+	db, err = gorm.Open("mssql", connectionString)*/
 	
 	if err != nil {
         log.Println(err)

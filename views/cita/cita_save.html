@@ -52,17 +52,17 @@
                                     <div class="row">
 										<div class="input-field col s12">
 											<!--<i class="material-icons prefix" for="fecha">account_circle</i>-->
-											<input id="fecha" name="fecha" type="text" class="datepicker">
+											<input id="fecha" name="fecha" type="text" class="datepicker" required >
 											<label for="fecha">fecha</label>
 										</div>
 										<div class="input-field col s12">
 											<!--<i class="material-icons prefix" for="hora">account_circle</i>-->
-											<input id="hora" name="hora" type="text" class="timepicker">
+											<input id="hora" name="hora" type="text" class="timepicker" required >
 											<label for="hora">hora</label>
 										</div>
                                         <div class="input-field col s12">
                                             <!--<i class="material-icons prefix">account_circle</i>-->
-                                            <select id="id_cliente" name="id_cliente">
+                                            <select id="id_cliente" name="id_cliente" required >
                                                 <option value="" disabled selected>clientes</option>
                                                 {{range $key, $val := .c}}
                                                 <option value="{{.Model.ID}}">{{.Nombre}}</option>
@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="input-field col s12">
                                             <!--<i class="material-icons prefix">account_circle</i>-->
-                                            <select id="id_mascota" name="id_mascota">
+                                            <select id="id_mascota" name="id_mascota" required >
                                                 <option value="" disabled selected>mascotas</option>
                                                 {{range $key, $val := .m}}
                                                 <option value="{{$val.Model.ID}}">{{$val.Nombre_Mascota}}</option>

@@ -12,7 +12,7 @@ import (
 func init() {
     beego.Router("/", &controllers.MainController{})
     beego.Router("/servicio/save", &servicio.SaveServicioController{})
-	beego.Router("/servicio/edit", &servicio.EditServicioController{})
+	beego.Router("/servicio/edit/:id([0-9]+)", &servicio.EditServicioController{})
 	beego.Router("/servicio/delete", &servicio.DeleteServicioController{})
 	beego.Router("/servicio/register/:id([0-9]+)", &controllers.RegisterServicioController{})
 	beego.Router("/servicio/historial", &controllers.HistorialServicioController{})

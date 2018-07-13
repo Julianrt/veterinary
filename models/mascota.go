@@ -2,6 +2,7 @@ package models
 
 import (
 	"log"
+	"fmt"
 )
 
 func init() {
@@ -71,6 +72,38 @@ func GetMascota(aidi int) Mascota {
 	var mascota Mascota
 	db.First(&mascota, aidi)
 	return mascota
+}
+
+func GetMascotasCliente(cliente int) []Mascota{
+	var mascotas []Mascota
+	db.Where("cliente_id = ?",cliente).Find(&mascotas)
+	
+	return mascotas
+}
+
+func GetMascotaSelect(cliente int) string {
+	
+	var selectMascota string = `<option value="" disabled selected>escoge una mascotas</option>`
+	
+	rows,err := db.Table("mascota").Select("id, nombre_mascota").Where("cliente_id = ?",cliente).Rows()
+	if err != nil {
+		log.Println(err)
+	}
+	for rows.Next() {
+		var id int
+		var nombre string
+
+		err = rows.Scan(&id, &nombre)
+		if err != nil {
+			log.Println(err)
+		}
+		
+		selectMascota += fmt.Sprintf("<option value=\"%d\">%s</option>",id,nombre)
+		
+	}
+	
+	return selectMascota
+	
 }
 
 func AddMascota(m Mascota) {

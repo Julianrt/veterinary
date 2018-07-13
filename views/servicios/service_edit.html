@@ -47,36 +47,36 @@
                             </div>
                             <div class="divider col s8 offset-s2" style="margin-top:10px; margin-bottom:15px;"></div>
                             <div class="row">
-                                <form class="col s12" method="POST" action="/servicio/edit" >
+                                <form class="col s12" method="POST" action="/servicio/edit/{{.s.Model.ID}}" >
                                     <div class="row">
                                         <!--<div class="input-field col s12">
                                             <i class="material-icons prefix">account_circle</i>
                                             <input id="idd" name="idd" type="text" class="validate">
                                             <label for="idd">ID del servicio</label>
                                         </div>-->
-                                        <div class="input-field col s12">
-                                          <!--<i class="material-icons prefix">account_circle</i>-->
-                                          <select id="idd" name="idd">
+                                        <!--<div class="input-field col s12">
+                                          <i class="material-icons prefix">account_circle</i>
+                                          <select id="idd" name="idd" required >
                                             <option value="" disabled selected>servicios</option>
-                                            {{range $key, $val := .s}}
-                                                <option value="{{$val.Model.ID}}">{{$val.Nombre_Servicio}}</option>
-                                            {{end}}
+                                            {{/*range $key, $val := .s*/}}
+                                                <option value="{{/*$val.Model.ID*/}}">{{/*$val.Nombre_Servicio*/}}</option>
+                                            {{/*end*/}}
                                           </select>
                                           <label for="idd">Seleccione el servicio a editar</label>
-                                        </div>
+                                        </div>-->
                                         <div class="input-field col s12">
                                             <!--<i class="material-icons prefix">account_circle</i>-->
-                                            <input id="name" name="name" type="text" class="validate">
+                                            <input id="name" name="name" type="text" class="validate" value="{{.s.Nombre_Servicio}}" required>
                                             <label for="name">Nombre del servicio</label>
                                         </div>
                                         <div class="input-field col s12">
                                             <!--<i class="material-icons prefix">account_circle</i>-->
-                                            <input id="costo" name="costo" type="text" class="validate" onKeypress="if(event.keyCode < 45 ||event.keyCode > 57)event.returnValue=false;" maxlength="5">
+                                            <input id="costo" name="costo" type="text" class="validate" value="{{.s.Costo}}" onKeypress="if(event.keyCode < 45 ||event.keyCode > 57)event.returnValue=false;" maxlength="5" required >
                                             <label for="costo">Costo del servicio</label>
                                         </div>
                                         <div class="input-field col s12">
                                             <!--<i class="material-icons prefix">account_circle</i>-->
-                                            <textarea id="descripcion" name="descripcion" type="text" class="validate materialize-textarea"></textarea>
+                                            <input id="descripcion" name="descripcion" type="text" class="validate materialize-textarea" value="{{.s.Descripcion}}" required >
                                             <label for="descripcion">Descripcion</label>
                                         </div>
                                         <div class="vol s12">

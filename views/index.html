@@ -32,7 +32,7 @@
                     </ul>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="/servicio/save">agregar servicio</a></li>
-                        <li><a href="/servicio/edit">editar servicio</a></li>
+                        <!--<li><a href="/servicio/edit">editar servicio</a></li>-->
                         <li><a href="/servicio/delete">eliminar servicio</a></li>
                     </ul>
                 </div>
@@ -60,6 +60,7 @@
                             <p>
                                 a solo ${{$val.Costo}} pesos
                             </p>
+                            <a href="/servicio/edit/{{$val.Model.ID}}">Editar</a>
                         </div>
                     </div>
                 </div>

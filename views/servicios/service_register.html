@@ -77,7 +77,7 @@
                                         </div>-->
                                         <div class="input-field col s12">
                                             <!--<i class="material-icons prefix">account_circle</i>-->
-                                            <select id="id_cliente" name="id_cliente">
+                                            <select id="id_cliente" name="id_cliente" required >
                                                 <option value="" disabled selected>clientes</option>
                                                 {{range $key, $val := .s.Clientes}}
                                                 <option value="{{.Model.ID}}">{{.Nombre}}</option>
@@ -92,11 +92,16 @@
                                         </div>-->
                                         <div class="input-field col s12">
                                             <!--<i class="material-icons prefix">account_circle</i>-->
-                                            <select id="id_mascota" name="id_mascota">
+                                            <select id="id_mascota" name="id_mascota" required >
                                                 <option value="" disabled selected>mascotas</option>
                                                 {{range $key, $val := .s.Mascotas}}
                                                 <option value="{{$val.Model.ID}}">{{$val.Nombre_Mascota}}</option>
                                                 {{end}}
+                                                <!--<option value="" disabled selected>mascotas</option>
+                                                {{/*range $key, $val := .mascotas*/}}
+                                                <option value="{{/*$val.Model.ID*/}}">{{/*$val.Nombre_Mascota*/}}</option>
+                                                {{/*end*/}}-->
+                                                <!--{{/*.mascotas*/}}-->
                                             </select>
                                             <label for="id_mascota">Seleccione la mascota</label>
                                         </div>
@@ -136,7 +141,10 @@
                 </div>
             </div>
         </footer>
-
+        
+        <!--<script>
+			window.idpath = {{.id}};
+		</script>-->
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="/static/jquery/jquery-2.2.4.min.js"></script>
         <!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
@@ -146,5 +154,6 @@
             $('select').material_select();
           });
         </script>
+        <!--<script src="/static/js/index.js" ></script>-->
     </body>
 </html>

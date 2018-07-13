@@ -45,7 +45,6 @@ func (this *RegisterServicioController) Post() {
 	hora := fmt.Sprintf("%02d:%02d:%02d", t.Hour(),t.Minute(),t.Second())
 	
 	servicio,_ := strconv.Atoi(this.Ctx.Input.Param(":id"))
-	//servicio,_ := strconv.Atoi(this.GetString("id_servicio"))
 	cliente,_ := strconv.Atoi(this.GetString("id_cliente"))
 	mascota,_ := strconv.Atoi(this.GetString("id_mascota"))
 	
@@ -56,6 +55,19 @@ func (this *RegisterServicioController) Post() {
 	serviceCliente.Hora = hora
 	
 	models.RegisterServicio(serviceCliente)
+	
+	if this.IsAjax(){
+		//servicio,_ := strconv.Atoi(this.Ctx.Input.Param(":id"))
+		cliente_id,_ := strconv.Atoi(this.GetString("id"))
+
+		lista_mascotas := models.GetMascotaSelect(cliente_id)
+
+		//mascotas := models.GetMascotasCliente(cliente_id)
+		//fmt.Println(mascotas)
+		
+		fmt.Println(lista_mascotas)
+		this.Data["mascotas"] = lista_mascotas
+	}
 	
 	this.Ctx.Redirect(302,"/")
 }

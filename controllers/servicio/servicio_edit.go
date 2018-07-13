@@ -11,13 +11,15 @@ type EditServicioController struct {
 }
 
 func (this *EditServicioController) Get() {
-	servicios := models.GetAllServicios()
+	servicio_id,_ := strconv.Atoi(this.Ctx.Input.Param(":id"))
+	servicios := models.GetServicio(servicio_id)
 	this.Data["s"] = servicios
 	this.TplName = "servicios/service_edit.html"
 }
 
 func (this *EditServicioController) Post() {
-	id,_ := strconv.Atoi(this.GetString("idd"))
+	//id,_ := strconv.Atoi(this.GetString("idd"))
+	id,_ := strconv.Atoi(this.Ctx.Input.Param(":id"))
 	nombre := this.GetString("name")
 	costo,_ := strconv.Atoi(this.GetString("costo"))
 	descripcion := this.GetString("descripcion")

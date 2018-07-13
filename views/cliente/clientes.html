@@ -98,7 +98,7 @@
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <!--<i class="material-icons prefix">account_circle</i>-->
-                                            <input id="name" name="name" type="text" class="validate">
+                                            <input id="name" name="name" type="text" class="validate" required >
                                             <label for="name">Nombre</label>
                                         </div>
                                         <!--<div class="input-field col s12">
@@ -108,12 +108,12 @@
                                         </div>-->
                                         <div class="input-field col s12">
                                             <!--<i class="material-icons prefix">add_location</i>-->
-                                            <input id="address" name="address" type="text" class="validate">
+                                            <input id="address" name="address" type="text" class="validate" required >
                                             <label for="address">Direccion</label>
                                         </div>
                                         <div class="input-field col s12">
                                             <!--<i class="material-icons prefix">phone</i>-->
-                                            <input id="phone" name="phone" type="text" class="validate" onKeypress="if(event.keyCode < 45 ||event.keyCode > 57)event.returnValue=false;" maxlength="10">
+                                            <input id="phone" name="phone" type="text" class="validate" onKeypress="if(event.keyCode < 45 ||event.keyCode > 57)event.returnValue=false;" maxlength="10" required >
                                             <label for="phone">Telefono</label>
                                         </div>
                                         <div class="vol s12">

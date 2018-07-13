@@ -103,7 +103,7 @@
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <!--<i class="material-icons prefix">account_circle</i>-->
-                                            <input id="name" name="name" type="text" class="validate">
+                                            <input id="name" name="name" type="text" class="validate" required >
                                             <label for="name">Nombre</label>
                                         </div>
                                         <!--<div class="input-field col s12">
@@ -113,7 +113,7 @@
                                         </div>-->
                                         <div class="input-field col s12">
                                           <!--<i class="material-icons prefix">account_circle</i>-->
-                                          <select id="raza" name="raza">
+                                          <select id="raza" name="raza" required >
                                             <option value="" disabled selected>razas</option>
                                             {{range $key, $val := .d.Razas}}
                                                 <option value="{{$val.Model.ID}}">{{$val.Nombre_Raza}}</option>
@@ -123,7 +123,7 @@
                                         </div>
                                         <div class="input-field col s12">
                                             <!--<i class="material-icons prefix">account_circle</i>-->
-                                            <input id="edad" name="edad" type="text" class="validate" onKeypress="if(event.keyCode < 45 ||event.keyCode > 57)event.returnValue=false;" maxlength="2">
+                                            <input id="edad" name="edad" type="text" class="validate" onKeypress="if(event.keyCode < 45 ||event.keyCode > 57)event.returnValue=false;" maxlength="2" required >
                                             <label for="edad">Edad de la mascota</label>
                                         </div>
                                         <!--<div class="input-field col s12">
@@ -133,7 +133,7 @@
                                         </div>-->
                                         <div class="input-field col s12">
                                           <!--<i class="material-icons prefix">account_circle</i>-->
-                                          <select id="cliente_dueno" name="cliente_dueno">
+                                          <select id="cliente_dueno" name="cliente_dueno" required >
                                             <option value="" disabled selected>clientes</option>
                                             {{range $key, $val := .d.Clientes}}
                                                 <option value="{{$val.Model.ID}}">{{$val.Nombre}}</option>

@@ -59,7 +59,7 @@
                                         </div>-->
                                         <div class="input-field col s12">
                                           <!--<i class="material-icons prefix">account_circle</i>-->
-                                          <select id="idd" name="idd">
+                                          <select id="idd" name="idd" required >
                                             <option value="" disabled selected>razas</option>
                                             {{range $key, $val := .r}}
                                                 <option value="{{$val.Model.ID}}">{{$val.Nombre_Raza}}</option>
